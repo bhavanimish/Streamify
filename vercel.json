@@ -1,0 +1,13 @@
+{
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://YOUR_BACKEND_DOMAIN.com/api/$1" },
+    { "source": "/(.*)", "destination": "/frontend/dist/index.html" }
+  ]
+}
